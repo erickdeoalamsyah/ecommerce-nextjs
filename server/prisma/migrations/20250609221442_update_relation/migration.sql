@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Chat" ALTER COLUMN "lastMessageAt" DROP NOT NULL,
+ALTER COLUMN "lastMessageAt" DROP DEFAULT;
