@@ -9,6 +9,8 @@ import ProductDetailsSkeleton from "./productSkeleton";
 import { useCartStore } from "@/store/useCartStore";
 import { useToast } from "@/hooks/use-toast";
 
+
+
 function ProductDetailsContent({ id }: { id: string }) {
   const [product, setProduct] = useState<any>(null);
   const { getProductById, isLoading, error } = useProductStore();

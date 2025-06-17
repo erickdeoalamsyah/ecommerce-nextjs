@@ -27,37 +27,4 @@
   "exclude": ["node_modules"]
 }
 
-// {
-//   "compilerOptions": {
-//     "target": "ES2017", // Menargetkan ES2017
-//     "lib": ["dom", "dom.iterable", "esnext"], // Menambahkan dukungan untuk DOM dan ESNext
-//     "allowJs": true, // Memungkinkan file JavaScript untuk dikompilasi
-//     "skipLibCheck": true, // Melewati pemeriksaan jenis pustaka
-//     "strict": true, // Mengaktifkan pemeriksaan ketat
-//     "noEmit": true, // Tidak mengeluarkan file hasil kompilasi
-//     "esModuleInterop": true, // Memungkinkan interoperabilitas modul ES dan CommonJS
-//     "module": "esnext", // Menggunakan modul ESNext
-//     "moduleResolution": "bundler", // Resolusi modul seperti bundler (terutama untuk Next.js)
-//     "resolveJsonModule": true, // Mengizinkan impor modul JSON
-//     "isolatedModules": true, // Menjamin bahwa file bisa dikompilasi secara terisolasi
-//     "jsx": "preserve", // Menjaga JSX dalam bentuk aslinya untuk diproses oleh Next.js
-//     "incremental": true, // Meningkatkan kinerja dengan kompilasi bertahap
-//     "plugins": [
-//       {
-//         "name": "next"
-//       }
-//     ],
-//     "paths": {
-//       "@/*": ["./src/*"] // Menetapkan alias untuk impor
-//     }
-//   },
-//   "include": [
-//     "next-env.d.ts", // Mendefinisikan variabel Next.js
-//     "**/*.ts", // Mengikutkan semua file TypeScript
-//     "**/*.tsx", // Mengikutkan semua file TSX
-//     ".next/types/**/*.ts" // Menambahkan definisi tipe Next.js
-// , "jest.config.ts", "babel.config.ts"  ],
-//   "exclude": [
-//     "node_modules" // Mengecualikan folder node_modules
-//   ]
-// }
+

@@ -6,12 +6,12 @@ import  Image from "next/image";
 function AboutPage() {
   return (
     <>
-      <section className="  bg-gradient-to-b from-black to-red-900 text-white py-[4rem] font-[orbitron]">
+      <section className="  bg-black text-gray-200">
         <div className="fixed inset-0 -z-10">
-          <div className="relative h-full w-full bg-gradient-to-b from-black to-red-900"></div>
+          <div className="relative h-full w-full bg-black"></div>
         </div>
         <div className="px-4 md:px-6 lg:px-40">
-          <h1 className="text-2xl font-bold mb-8 border-b border-white py-2">
+          <h1 className="text-lg font-semibold mb-8 border-b border-white py-2">
             About Us
           </h1>
 
@@ -19,7 +19,7 @@ function AboutPage() {
             <Image
               src={about1}
               alt="Team Photo"
-              className="w-full h-[18rem] lg:w-full lg:h-[40rem] rounded-lg shadow-md"
+              className="w-full h-[18rem] lg:w-full lg:h-[48rem] rounded-lg shadow-md"
             />
           </div>
           <div className="mb-4">

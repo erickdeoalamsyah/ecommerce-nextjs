@@ -246,7 +246,6 @@ export interface Order {
   userId: string;
   addressId: string;
   items: OrderItem[];
-  couponId?: string;
   total: number;
   status: "PENDING" | "PROCESSING" | "SHIPPED" | "DELIVERED";
   paymentMethod: "CREDIT_CARD" | "TRANSFER";

@@ -170,6 +170,7 @@ function UserAccountPage() {
                       <TableRow >
                         <TableHead>Order</TableHead>
                         <TableHead>Date</TableHead>
+                        <TableHead>Pay Method</TableHead>
                         <TableHead>Items</TableHead>
                         <TableHead>Status</TableHead>
                         <TableHead>Total</TableHead>
@@ -183,6 +184,9 @@ function UserAccountPage() {
                           </TableCell>
                           <TableCell>
                             {new Date(order.createdAt).toLocaleDateString()}
+                          </TableCell>
+                          <TableCell>
+                            {order.paymentMethod}
                           </TableCell>
                           <TableCell>
                             {order.items.length}{" "}

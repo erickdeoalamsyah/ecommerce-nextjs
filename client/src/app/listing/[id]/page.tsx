@@ -11,3 +11,5 @@ function ProductDetailsPage({ params }: { params: { id: string } }) {
 }
 
 export default ProductDetailsPage;
+
+

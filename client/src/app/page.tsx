@@ -2,37 +2,40 @@
 
 import { Button } from "@/components/ui/button";
 import { useSettingsStore } from "@/store/useSettingsStore";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+import home1 from "../../public/images/home1.webp";
+import home2 from "../../public/images/home2.webp";
+import home3 from "../../public/images/home3.webp";
+import home4 from "../../public/images/home4.webp";
+import { useRouter } from "next/navigation";
 
 const gridItems = [
   {
     title: "T-SHIRT",
     subtitle: "From world's top designer",
-    image:
-      "https://images.unsplash.com/photo-1614251056216-f748f76cd228?q=80&w=1974&auto=format&fit=crop",
+    Image: home1,
   },
   {
     title: "HAT",
     subtitle: "Timeless cool weather",
-    image:
-      "https://avon-demo.myshopify.com/cdn/shop/files/demo1-winter1_600x.png?v=1733380268",
+    Image: home2,
   },
   {
     title: "STICKER",
     subtitle: "Everything you need",
-    image:
-      "https://avon-demo.myshopify.com/cdn/shop/files/demo1-winter4_600x.png?v=1733380275",
+    Image: home3,
   },
   {
     title: "ACCESSORIES",
     subtitle: "Party season ready",
-    image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1974&auto=format&fit=crop",
+    Image: home4,
   },
 ];
 
 function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const router = useRouter();
   const { banners, featuredProducts, fetchFeaturedProducts, fetchBanners } =
     useSettingsStore();
 
@@ -72,7 +75,7 @@ function HomePage() {
             <div className="relative h-full container px-10 flex items-center">
               <div className="text-white space-y-6">
                 <span className="text-sm uppercase tracking-wider">
-                  Isoneday 
+                  Isoneday
                 </span>
                 <h1 className="text-xl lg:text-4xl font-semibold leading-tight">
                   BEST SELLING
@@ -117,12 +120,15 @@ function HomePage() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {gridItems.map((gridItem, index) => (
-              <div key={index} className="relative group overflow-hidden">
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-lg"
+              >
                 <div className="aspect-[3/4]">
-                  <img
-                    src={gridItem.image}
+                  <Image
+                    src={gridItem.Image}
                     alt={gridItem.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 "
                   />
                 </div>
                 <div className="absolute inset-0 bg-black bg-opacity-25 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -131,7 +137,10 @@ function HomePage() {
                       {gridItem.title}
                     </h3>
                     <p className="text-sm">{gridItem.subtitle}</p>
-                    <Button className="mt-4 bg-white text-black hover:bg-gray-100">
+                    <Button
+                      onClick={() => router.push("/listing")}
+                      className="mt-4 bg-white text-black hover:bg-gray-100"
+                    >
                       SHOP NOW
                     </Button>
                   </div>
@@ -151,25 +160,28 @@ function HomePage() {
           <p className="text-center text-red-600 mb-8">
             Shop our new arrivals from established brands
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2">
-            {featuredProducts.map((productItem, index) => (
-              <div key={index} className="relative aspect-square group overflow-hidden border border-red-600 rounded-lg p-2" >
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 ">
+            {featuredProducts.map((productItem) => (
+              <div
+                onClick={() => router.push(`/listing/${productItem.id}`)}
+                key={productItem.id}
+                className="group border border-red-600 p-2 rounded-lg"
+              >
+                <div className="relative mb-2 bg-blur overflow-hidden rounded-lg">
                   <img
                     src={productItem.images[0]}
                     alt={productItem.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />  
-                <div className="absolute inset-0 bg-black bg-opacity-25 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="text-center text-white p-4">
-                    <h3 className="text-xl font-semibold mb-2">
-                      {productItem.name}
-                    </h3>
-                    <p className="text-sm">{productItem.price}</p>
-                    <Button className="mt-4 bg-white text-black hover:bg-gray-100">
-                      QUICK ViEW
+                    className="w-full h-full object-cover transition-transform duration-300 border-b border-red-600 "
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <Button className="bg-black text-red-600 hover:text-gray-100">
+                      View Detail
                     </Button>
                   </div>
                 </div>
+                <h2 className="text-center text-xs font-semibold uppercase">
+                  {productItem.name}
+                </h2>
               </div>
             ))}
           </div>
