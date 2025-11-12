@@ -9,6 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        pagination:
+        "bg-red-600 text-white hover:bg-red-800",
         default:
           "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive:

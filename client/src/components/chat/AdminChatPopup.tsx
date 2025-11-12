@@ -68,7 +68,7 @@ export default function AdminChatPopup() {
   if (!isChatOpen || !user || user.role !== "SUPER_ADMIN") return null
 
   return (
-    <div className="fixed bottom-6 left-20 z-50 flex h-[600px] w-[800px] rounded-lg bg-gray-900 shadow-xl border border-gray-700">
+    <div className="fixed bottom-6 right-2 z-50 flex h-[400px] w-[370px] md:h-[500px] md:w-[400px] rounded-lg bg-gray-900 shadow-xl border-2 border-red-600">
       {/* Chat List Sidebar */}
       <div className="w-1/3 border-r border-gray-500">
         {/* Header */}
@@ -225,7 +225,7 @@ export default function AdminChatPopup() {
                 <button
                   type="submit"
                   disabled={!messageInput.trim()}
-                  className="rounded-r-lg bg-red-600 p-2 text-white hover:bg-red-700 disabled:bg-red-900 "
+                  className="rounded-r-lg bg-red-600 p-2 text-white hover:bg-red-700 disabled:bg-red-600 "
                 >
                   <Send className="h-4 w-5" />
                 </button>

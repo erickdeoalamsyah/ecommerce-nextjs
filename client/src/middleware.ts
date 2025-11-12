@@ -7,7 +7,8 @@ const publicRoutes = [
   "/auth/login",
   "/listing",
   "/about",
-  "/contact"
+  "/contact",
+  "/size-guide"
 ];
 
 const superAdminRoutes = ["/super-admin", "/super-admin/:path*"];

@@ -22,16 +22,16 @@ import { brands, categories, sizes } from "@/utils/config";
 import { ChevronLeft, ChevronRight, SlidersHorizontal } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import bannerProduct from "../../../public/images/bannerProduct.webp"
+import bannerProduct from "../../../public/images/bannerProduct.webp";
 import Image from "next/image";
 import { formatRupiah } from "@/utils/formatCurrency";
 
 const colors = [
-  { name: "Navy", class: "bg-blue-900" },
+  { name: "Navy", class: "bg-blue-700" },
   { name: "Black", class: "bg-black border-2" },
-  { name: "White", class: "bg-white border" },
-  { name: "Army", class: "bg-green-900" },
-  { name: "Red", class: "bg-red-700" },
+  { name: "White", class: "bg-white border-2 border-black" },
+  { name: "Army", class: "bg-green-500" },
+  { name: "Red", class: "bg-red-600" },
 ];
 
 function ProductListingPage() {
@@ -56,7 +56,7 @@ function ProductListingPage() {
   const fetchAllProducts = () => {
     fetchProductsForClient({
       page: currentPage,
-      limit: 6,
+      limit: 8,
       categories: selectedCategories,
       sizes: selectedSizes,
       colors: selectedColors,
@@ -114,9 +114,9 @@ function ProductListingPage() {
           <h3 className="mb-3 font-semibold text-red-600">Categories</h3>
           <div className="space-y-2">
             {categories.map((category) => (
-              <div key={category} className="flex items-center">
+              <div key={category} className="flex items-center text-gray-200">
                 <Checkbox
-                className="border-2 border-red-600"
+                  className="border-2 border-red-600"
                   checked={selectedCategories.includes(category)}
                   onCheckedChange={() =>
                     handleToggleFilter("categories", category)
@@ -134,9 +134,9 @@ function ProductListingPage() {
           <h3 className="mb-3 font-semibold text-red-600">Brands</h3>
           <div className="space-y-2">
             {brands.map((brand) => (
-              <div key={brand} className="flex items-center">
+              <div key={brand} className="flex items-center text-gray-200">
                 <Checkbox
-                className="border-2 border-red-600"
+                  className="border-2 border-red-600"
                   checked={selectedBrands.includes(brand)}
                   onCheckedChange={() => handleToggleFilter("brands", brand)}
                   id={brand}
@@ -199,51 +199,56 @@ function ProductListingPage() {
         />
         <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-xl md:text-4xl font-semibold mb-2">HOT COLLECTION</h1>
+            <h1 className="text-xl md:text-4xl font-semibold mb-2">
+              HOT COLLECTION
+            </h1>
             <p className="text-lg">Discover our latest collection</p>
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-4 py-8">
+      <div className="px-4 md:px-10 py-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4 md:gap-0 ">
-  <h2 className="text-lg md:text-2xl font-semibold">All Products</h2>
-  <div className="flex items-center gap-2 w-full md:w-auto">
-    {/* Tombol filter untuk mobile */}
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant={"secondary"} className="lg:hidden flex items-center gap-1 mt-2">
-          <SlidersHorizontal className="h-4 w-4" />
-          Filters
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="w-[90vw] max-h-[600px] overflow-auto max-w-[400px]">
-        <DialogHeader>
-          <DialogTitle>Filters</DialogTitle>
-        </DialogHeader>
-        <FilterSection />
-      </DialogContent>
-    </Dialog>
+          <h2 className="text-lg md:text-2xl font-semibold">All Products</h2>
+          <div className="flex items-center gap-2 w-full md:w-auto">
+            {/* Tombol filter untuk mobile */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  variant={"secondary"}
+                  className="lg:hidden flex items-center gap-1 mt-2"
+                >
+                  <SlidersHorizontal className="h-4 w-4" />
+                  Filters
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="w-[90vw] max-h-[600px] bg-black/50 rounded-lg border-2 border-red-600 overflow-auto max-w-[400px] text-white">
+                <DialogHeader className="text-white">
+                  <DialogTitle>Filters</DialogTitle>
+                </DialogHeader>
+                <FilterSection/>
+              </DialogContent>
+            </Dialog>
 
-    {/* Select untuk sorting, full width di mobile */}
-    <Select
-      value={`${sortBy}-${sortOrder}`}
-      onValueChange={(value) => handleSortChange(value)}
-      name="sort "
-    >
-      <SelectTrigger className="mt-1.5 w-full md:w-auto border border-red-600 text-red-600">
-        <SelectValue placeholder="Select Brand " />
-      </SelectTrigger>
-      <SelectContent className="bg-black text-red-600">
-        <SelectItem value="createdAt-asc">Sort by: Featured</SelectItem>
-        <SelectItem value="price-asc">Price: Low to High</SelectItem>
-        <SelectItem value="price-desc">Price : High to Low</SelectItem>
-        <SelectItem value="createdAt-desc">
-          Sort by: Newest First
-        </SelectItem>
-      </SelectContent>
-    </Select>
-  </div>
-</div>
+            {/* Select untuk sorting, full width di mobile */}
+            <Select
+              value={`${sortBy}-${sortOrder}`}
+              onValueChange={(value) => handleSortChange(value)}
+              name="sort "
+            >
+              <SelectTrigger className="mt-1.5 w-full md:w-auto border border-red-600 text-red-600">
+                <SelectValue placeholder="Select Brand " />
+              </SelectTrigger>
+              <SelectContent className="bg-black text-red-600">
+                <SelectItem value="createdAt-asc">Sort by: Featured</SelectItem>
+                <SelectItem value="price-asc">Price: Low to High</SelectItem>
+                <SelectItem value="price-desc">Price : High to Low</SelectItem>
+                <SelectItem value="createdAt-desc">
+                  Sort by: Newest First
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
 
         <div className="flex gap-8">
           <div className="hidden lg:block flex-shrink-0 ">
@@ -256,14 +261,14 @@ function ProductListingPage() {
             ) : error ? (
               <div>Error: {error}</div>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 ">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 ">
                 {products.map((productItem) => (
                   <div
                     onClick={() => router.push(`/listing/${productItem.id}`)}
                     key={productItem.id}
-                    className="group border border-red-600 p-2 rounded-lg"
+                    className="group border-2 border-red-600 rounded-md bg-black"
                   >
-                    <div className="relative mb-2 bg-blur overflow-hidden rounded-lg">
+                    <div className="relative overflow-hidden rounded-lg">
                       <img
                         src={productItem.images[0]}
                         alt={productItem.name}
@@ -275,20 +280,15 @@ function ProductListingPage() {
                         </Button>
                       </div>
                     </div>
-                    <h2 className="text-center text-xs font-semibold uppercase">{productItem.name}</h2>
+                    <div className="bg-black py-2">
+                    <h2 className="text-center text-xs font-semibold uppercase">
+                      {productItem.name}
+                    </h2>
                     <div className="flex text-xs items-center justify-center space-x-2 ">
                       <span className="font-semibold text-xs mt-1">
                         {formatRupiah(productItem.price)}
                       </span>
-                      <div className="flex gap-1">
-                        {productItem.colors.map((colorItem, index) => (
-                          <div
-                            key={index}
-                            className={`w-4 h-4 rounded-full border `}
-                            style={{ backgroundColor: colorItem }}
-                          />
-                        ))}
-                      </div>
+                    </div>
                     </div>
                   </div>
                 ))}
@@ -309,7 +309,7 @@ function ProductListingPage() {
                 (page) => (
                   <Button
                     key={page}
-                    variant={currentPage === page ? "default" : "secondary"}
+                    variant={currentPage === page ? "pagination" : "secondary"}
                     className="w-10"
                     onClick={() => handlePageChange(page)}
                   >

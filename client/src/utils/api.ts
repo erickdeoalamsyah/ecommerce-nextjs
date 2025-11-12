@@ -1,4 +1,4 @@
-export const API_BASE_URL = "http://localhost:3002" // ✅ Ubah dari 3001 ke 3002
+export const API_BASE_URL = "http://localhost:3002" 
 
 export const API_ROUTES = {
   AUTH: `${API_BASE_URL}/api/auth`,
@@ -8,5 +8,5 @@ export const API_ROUTES = {
   ADDRESS: `${API_BASE_URL}/api/address`,
   ORDER: `${API_BASE_URL}/api/order`,
   CHAT: `${API_BASE_URL}/api/chat`,
-  WEBSOCKET: `ws://localhost:3002`, // ✅ Ubah dari 3001 ke 3002
+  WEBSOCKET: `ws://localhost:3002`, 
 }
