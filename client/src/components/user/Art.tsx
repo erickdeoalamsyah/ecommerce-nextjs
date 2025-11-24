@@ -1,191 +1,3 @@
-// "use client"
-
-// import Link from 'next/link';
-// import { useEffect, useRef, useState } from "react";
-// import { motion } from "framer-motion";
-// import  {Instagram}  from "lucide-react";
-// import art1 from '../../../public/images/art1.webp'
-// import art2 from '../../../public/images/art2.webp'
-// import art3 from '../../../public/images/art3.webp'
-// import art4 from '../../../public/images/art4.webp'
-// import art5 from '../../../public/images/art5.webp'
-// import art6 from '../../../public/images/art6.webp'
-// import art7 from '../../../public/images/art7.webp'
-// import art8 from '../../../public/images/art8.webp'
-// import art9 from '../../../public/images/art9.webp'
-// import art10 from '../../../public/images/art10.webp'
-// import art11 from '../../../public/images/art11.webp'
-// import Image from 'next/image';
-
-// interface ArtItem {
-//   name: string;
-//   image: string | string[];
-// }
-// const art = [
-//     {
-//         id:1,
-//         name:"Art1",
-//         image:art1
-//     },
-//     {
-//         id:2,
-//         name:"Art2",
-//         image:art2
-//     },
-//     {
-//         id:3,
-//         name:"Art3",
-//         image:art3
-//     },
-//     {
-//         id:4,
-//         name:"Art4",
-//         image:art4
-//     },
-//     {
-//         id:5,
-//         name:"Art5",
-//         image:art5
-//     },{
-//         id:6,
-//         name:"Art6",
-//         image:art6
-//     },
-//     {
-//         id:7,
-//         name:"Art7",
-//         image:art7
-//     },
-//     {
-//         id:8,
-//         name:"Art8",
-//         image:art8
-//     },
-//     {
-//         id:9,
-//         name:"Art9",
-//         image:art9
-//     },
-//     {
-//         id:10,
-//         name:"Art10",
-//         image:art10
-//     },
-//     {
-//         id:11,
-//         name:"Art11",
-//         image:art11
-//     },
-
-// ]
-
-// function Art  () {
-//   const scrollRef = useRef<HTMLDivElement | null>(null);
-//   let scrollInterval: NodeJS.Timeout;
-
-//   const startScroll = () => {
-//     scrollInterval = setInterval(() => {
-//       if (scrollRef.current) {
-//         scrollRef.current.scrollLeft += 1;
-//         if (
-//           scrollRef.current.scrollLeft >=
-//           scrollRef.current.scrollWidth - scrollRef.current.clientWidth
-//         ) {
-//           scrollRef.current.scrollLeft = 0;
-//         }
-//       }
-//     }, 20);
-//   };
-
-//   useEffect(() => {
-//     startScroll();
-
-//     return () => {
-//       if (scrollInterval) {
-//         clearInterval(scrollInterval);
-//       }
-//     };
-//   }, []);
-
-//   return (
-//     <section className="text-gray-300 bg-black overflow-hidden py-16 border-t border-red-600">
-//   <div className="w-full px-4 md:px-10">
-//     <div className="grid md:grid-cols-2 gap-8 py-12">
-//       {/* Left side - Heading */}
-//       <motion.div
-//         whileInView={{ opacity: 1, y: 0 }}
-//         initial={{ opacity: 0, y: -50 }}
-//         transition={{ duration: 1 }}
-//       >
-//         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-300 leading-tight">
-//           JOIN US
-//           <br />
-//           ON
-//           <span className="text-red-600"> INSTAGRAM</span>
-//         </h2>
-//       </motion.div>
-
-//       {/* Right side - Text and Button */}
-//       <motion.div
-//         whileInView={{ opacity: 1, y: 0 }}
-//         initial={{ opacity: 0, y: -50 }}
-//         transition={{ duration: 1 }}
-//         className="flex flex-col justify-center"
-//       >
-//         <p className="text-red-600 text-sm sm:text-base mb-6 leading-relaxed">
-//           Discover the Art, Live the Culture. At Isoneday, every piece tells a story of rebellion,
-//           passion, and creativity. Join our journey and express your identity through art and style.
-//         </p>
-//         <Link
-//           href="https://www.instagram.com/isoneday.studio/"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           className="p-2 text-red-600 hover:text-red-800 w-fit flex items-center gap-2 text-sm sm:text-base"
-//         >
-//           <Instagram className="w-4 h-4" />
-//           FOLLOW NOW
-//         </Link>
-//       </motion.div>
-//     </div>
-
-//     {/* Image Gallery */}
-//     <div
-//       ref={scrollRef}
-//       className="flex gap-4 overflow-x-hidden overflow-y-hidden cursor-grab select-none scrollbar-none"
-//       onMouseEnter={(e) => {
-//         const container = e.currentTarget;
-//         container.style.cursor = "grab";
-//         clearInterval(scrollInterval);
-//       }}
-//       onMouseLeave={(e) => {
-//         const container = e.currentTarget;
-//         container.style.cursor = "auto";
-//         startScroll();
-//       }}
-//     >
-//       {(art as unknown as ArtItem[]).map((artItem, index) => (
-//         <motion.div
-//           key={index}
-//           className="relative flex-shrink-0 w-[50vw] h-[50vw] md:w-72 md:h-72 group"
-//           whileHover={{ scale: 1.02 }}
-//           transition={{ duration: 0.3 }}
-//         >
-//           <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-//           <Image
-//             src={Array.isArray(artItem.image) ? artItem.image[0] : artItem.image}
-//             alt={artItem.name}
-//             className="w-full h-full object-contain rounded-lg"
-//           />
-//         </motion.div>
-//       ))}
-//     </div>
-//   </div>
-// </section>
-
-//   );
-// };
-
-// export default Art;
 "use client"
 
 import Link from "next/link"
@@ -353,10 +165,10 @@ const Art: React.FC = () => {
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-red-600/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className="relative z-10 w-full px-4 md:px-10">
+      <div className="relative z-10 w-full sm:px-4 md:px-0">
         {/* Header Section */}
         <motion.div
-          className="grid md:grid-cols-2 gap-8 lg:gap-12 py-12 mb-16"
+          className="grid md:grid-cols-2 gap-8 lg:gap-12 py-12 mb-16 px-4 md:px-10"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -407,9 +219,9 @@ const Art: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="relative border-y border-red-600"
+          className="relative border-y border-red-600 "
         >
-          <div className="text-center py-16 px-10  ">
+          <div className="text-center py-16 md:px-0  ">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-2 uppercase">
               Our <span className="text-red-600">Creative</span> Gallery
             </h3>
